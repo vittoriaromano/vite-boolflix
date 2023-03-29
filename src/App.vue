@@ -41,7 +41,7 @@ created(){
 
 <template>
        <AppHeader></AppHeader>
-       <AppMain @ricerca="search"></AppMain>
+       <AppMain @domanda="search"></AppMain>
 </template>
 
 <style scoped>
