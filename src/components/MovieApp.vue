@@ -1,26 +1,21 @@
 <script>
+import SearchBox from './SearchBox.vue';
 export default{
     name: 'Movies',
+    components:{
+       SearchBox
+    },
     props:{
-        title: 'Titolo',
-        originalTitle: 'Title',
-        language: 'eng',
-        rating: '',
-    }
+        info: Object
+    },
+
 }
-  
 </script>
 
 <template>
     <div>
-         <h2>{{ title }}</h2>
-         <article>{{ language }}</article>
-         <article>{{ rating }}</article>
+    <h2>{{ info.title }}</h2>
+    <article>{{ info.original_language }}</article>
+    <article>{{ rating }}</article>
     </div>
 </template>
-<style lang="scss" scoped>
-article{
-    color: red;
-    display: block;
-}
-</style>
