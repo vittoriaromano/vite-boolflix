@@ -20,13 +20,15 @@ export default{
                 api_key:this.store.config.apiKey,
                 language:this.store.config.defaultLang,
                 query:this.store.searchKey
-            }
+            },
        })
        .then((response) => {
                 console.log(response.data);
                 this.store.movies = response.data.results;
             });
         }
+        
+        
     }
 }
 </script>

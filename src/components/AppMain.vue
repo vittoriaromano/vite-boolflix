@@ -1,4 +1,5 @@
 <script>
+
 import { store } from '../store';
 import MovieApp from './MovieApp.vue';
 export default{
