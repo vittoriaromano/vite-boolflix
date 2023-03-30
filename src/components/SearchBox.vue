@@ -21,14 +21,27 @@ export default{
                 language:this.store.config.defaultLang,
                 query:this.store.searchKey
             },
-       })
-       .then((response) => {
-                console.log(response.data);
-                this.store.movies = response.data.results;
+            })
+            .then((response) => {
+                    console.log(response.data);
+                    this.store.movies = response.data.results;
             });
+
+            axios.get('https://api.themoviedb.org/3/search/tv?api_key=0bca381b300b7e831988b09a510fb6c6&query=',{
+                params:{
+                    api_key:this.store.config.apiKey,
+                    language:this.store.config.defaultLang,
+                    query:this.store.searchKey
+                }
+            })
+            .then((response) => {
+                    console.log(response.data);
+                    this.store.movies = response.data.results;
+            });
+
+
+            store.searchKey = '';
         }
-        
-        
     }
 }
 </script>

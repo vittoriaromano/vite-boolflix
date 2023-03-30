@@ -22,7 +22,11 @@ export default{
                 case 'ja':
                     return 'jp';
                 case 'cs':
-                    return 'cz'
+                    return 'cz';
+                case 'hi':
+                    return 'in';
+                case 'ko':
+                    return 'kr';
 
                 default:
                     return this.info.original_language;
