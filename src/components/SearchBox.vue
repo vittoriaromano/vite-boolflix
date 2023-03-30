@@ -19,7 +19,7 @@ export default{
              params:{
                 api_key:this.store.config.apiKey,
                 language:this.store.config.defaultLang,
-                query:this.store.config.searchKey
+                query:this.store.searchKey
             }
        })
        .then((response) => {
