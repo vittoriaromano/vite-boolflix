@@ -15,7 +15,7 @@ export default{
             this.$emit('ricerca');
             console.log(this.store.searchKey);
             
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=0bca381b300b7e831988b09a510fb6c6&query=', {
+            axios.get(this.store.config.url + this.store.config.endpointMovie, {
              params:{
                 api_key:this.store.config.apiKey,
                 language:this.store.config.defaultLang,
@@ -27,7 +27,7 @@ export default{
                     this.store.movies = response.data.results;
             });
 
-            axios.get('https://api.themoviedb.org/3/search/tv?api_key=0bca381b300b7e831988b09a510fb6c6&query=',{
+            axios.get(this.store.config.url + this.store.config.endpointSeries,{
                 params:{
                     api_key:this.store.config.apiKey,
                     language:this.store.config.defaultLang,
@@ -36,12 +36,12 @@ export default{
             })
             .then((response) => {
                     console.log(response.data);
-                    this.store.movies = response.data.results;
+                    this.store.series = response.data.results;
             });
 
 
-            store.searchKey = '';
-        }
+            //store.searchKey = '';
+        },
     }
 }
 </script>
@@ -60,54 +60,3 @@ export default{
 <style lang="scss" scoped>
 </style>
 
-<!-- <script>
-    search(){
-            console.log('evento');
-            console.log(this.store.searchKey)
-            axios.get(this.store.config.urlMovie, {
-                params:{
-                    api_key:this.store.config.apiKey,
-                    language:this.store.config.defaultLang,
-                    query:this.store.config.searchKey
-                }
-            }).then((response) => {
-                console.log(response.data);
-                this.store.movies = response.data.results;
-            });
-        }
-import MovieApp from './MovieApp.vue';
-import { store } from '../store';
-export default{
-    name: 'SearchBox',
-    components:{
-        MovieApp
-    },
-    data(){
-        return{
-            store,
-        }
-    },
-    methods:{
-        testSubmit(){
-            console.log('inviato');
-            console.log(this.store.searchKey);
-        }
-    }
-}
-</script>
-
-<template>
-    <form @submit.prevent="$emit('domanda')">
-        <div>
-            <label for="search-box">SearchBox</label>
-            <input type="text" id="search-box" v-model="store.searchKey">
-            <button type="submit" @click="testSubmit">Cerca</button>
-        </div>
-    </form>
-    
-</template>
-
-<style lang="scss" scoped>
-
-
-</style> -->

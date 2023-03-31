@@ -19,6 +19,9 @@ export default{
     <main>
         <div v-for="movie in store.movies"> 
             <MovieApp :info="movie"/>
+       </div>
+       <div v-for="series in store.series"> 
+            <MovieApp :info="series" :title="series.name" :parent="series"/>
        </div> 
     </main>
 </template>

@@ -23,7 +23,7 @@ export default{
 <template>
   <div>
     <AppHeader @domanda="search"></AppHeader>
-    <AppMain @domanda="search"></AppMain>
+    <AppMain></AppMain>
 
   </div>
 </template>

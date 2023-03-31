@@ -8,7 +8,8 @@ export default{
        CountryFlag
     },
     props:{
-        info: Object
+        info: Object,
+        title: String
     },
     computed:{
         language(){
@@ -32,6 +33,9 @@ export default{
                     return this.info.original_language;
             }
         }
+    },
+    title(){
+        return info.title !== null ? info.title : info.name;
     }
 
 }
@@ -39,9 +43,10 @@ export default{
 
 <template>
     <div>
-    <h2>{{ info.title }}</h2>
-    <article>{{ language }}</article>
-    <article>{{ info.vote_avarage }}</article>
+    <h2>{{ title }}</h2>
+    <!-- <article>{{ language }}</article> -->
+    <article>{{ info.original_title }}</article>
+    <article>{{ info.vote_average }}</article>
     <country-flag :country='language' size='small'/>
     </div>
 </template>
