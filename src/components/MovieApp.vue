@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store';
 import CountryFlag from 'vue-country-flag-next'
 import SearchBox from './SearchBox.vue';
 export default{
@@ -7,9 +8,12 @@ export default{
        SearchBox,
        CountryFlag
     },
+    data(){
+      return store
+    },
     props:{
         info: Object,
-        title: String
+        //poster_path: String
     },
     computed:{
         language(){
@@ -32,21 +36,39 @@ export default{
                 default:
                     return this.info.original_language;
             }
-        }
-    },
-    title(){
-        return info.title !== null ? info.title : info.name;
+        },
+        title(){
+            return this.info.title || this.info.name;
+        },
+        original_title(){
+            return  this.info.original_title || this.info.original_name
+        },
+        getVote() {
+            return Math.ceil(this.info.vote_average / 2);
+        },
     }
-
 }
 </script>
 
 <template>
+   <div>
+      <img :scr="urlBase + info.poster_path"> 
+    </div>
     <div>
     <h2>{{ title }}</h2>
-    <!-- <article>{{ language }}</article> -->
-    <article>{{ info.original_title }}</article>
-    <article>{{ info.vote_average }}</article>
+    <article>{{ original_title }}</article>
+    <div>
+        <font-awesome-icon icon="fa-solid fa-star" v-for="n in getVote"/>
+        <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-getVote"/>
+    </div>
     <country-flag :country='language' size='small'/>
     </div>
 </template>
+
+<style lang="scss" scoped>
+img{ 
+    display: block;
+    height: 200px;
+    width: 130px;
+}
+</style>

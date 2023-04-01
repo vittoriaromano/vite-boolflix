@@ -7,10 +7,14 @@ export const store = reactive ({
         endpointMovie:'search/movie',
         endpointSeries:'search/tv',
         apiKey:'0bca381b300b7e831988b09a510fb6c6',
-        defaultLang:'it-IT'
+        defaultLang:'it-IT',
+        // urlBase: "http://image.tmdb.org/t/p/",
+        // imageSize: 'w342',
     },
     movies:[],
     series: [],
     searchKey: '',
+    urlBase: 'http://image.tmdb.org/t/p/w700',
+    //imagePath: 'poster_path'
 
 })
