@@ -14,7 +14,7 @@ export const store = reactive ({
     movies:[],
     series: [],
     searchKey: '',
-    urlBase: 'http://image.tmdb.org/t/p/w700',
+    urlBase: 'http://image.tmdb.org/t/p/w342',
     //imagePath: 'poster_path'
 
 })

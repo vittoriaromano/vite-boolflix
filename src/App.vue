@@ -22,6 +22,7 @@ export default{
 
 <template>
   <div>
+    <!-- connettere la domanda -->
     <AppHeader @domanda="search"></AppHeader>
     <AppMain></AppMain>
 
